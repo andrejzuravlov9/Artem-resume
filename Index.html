@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf - Artem Miroshnykov</title>
+    <!-- Подключаем современный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- ВСТРОЕННЫЕ СТИЛИ (CSS) --- */
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #eff6ff;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .print-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .print-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .header {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 40px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .header h2 span {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-section {
+            margin-bottom: 35px;
+        }
+
+        .contact-list, .languages-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-list i {
+            color: var(--primary-color);
+            margin-top: 4px;
+            width: 16px;
+        }
+
+        .languages-list li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .skills-wrapper h4 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tag.outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary-light);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .text-muted {
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .project-card {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .project-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .project-card h4 span {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: normal;
+        }
+
+        .project-card ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .project-card li {
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            padding: 40px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature-line {
+            width: 200px;
+            height: 1px;
+            background: var(--text-main);
+            margin: 40px 0 10px 0;
+        }
+
+        .signature-name {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                padding: 40px 20px;
+            }
+            .print-btn {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .print-btn {
+                display: none;
+            }
+            .main-content {
+                gap: 30px;
+                padding: 30px;
+            }
+            .project-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border-color: #ddd;
+            }
+            .timeline-item {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+
+        <header class="header">
+            <div class="header-content">
+                <h1>Artem Miroshnykov</h1>
+                <h2>Ausbildung zum Fachinformatiker <br><span>(Anwendungsentwicklung / Systemintegration)</span></h2>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="info-section">
+                    <h3><i class="fas fa-user"></i> Persönliche Daten</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Hagen, Deutschland</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+491622542898">+49 162 2542898</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:mir.07artem@gmail.com">mir.07artem@gmail.com</a></li>
+                        <li><i class="fas fa-calendar-alt"></i> 29.04.2007 <br> in Charkiw (Ukraine)</li>
+                    </ul>
+                </section>
+
+                <section class="info-section">
+                    <h3><i class="fas fa-laptop-code"></i> IT-Kenntnisse</h3>
+                    <div class="skills-wrapper">
+                        <h4>Programmiersprachen:</h4>
+                        <div class="tags">
+                            <span class="tag">Python (OOP, Bots)</span>
+                        </div>
+                        
+                        <h4>Web-Technologien:</h4>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                        </div>
+
+                        <h4>Entwicklungsumgebungen:</h4>
+                        <div class="tags">
+                            <span class="tag">VS Code</span>
+                            <span class="tag">PyCharm</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="info-section">
+                    <h3><i class="fas fa-globe"></i> Sprachkenntnisse</h3>
+                    <ul class="languages-list">
+                        <li><strong>Russisch:</strong> Muttersprache</li>
+                        <li><strong>Ukrainisch:</strong> Muttersprache</li>
+                        <li><strong>Deutsch:</strong> B1 (Zertifiziert)</li>
+                        <li><strong>Englisch:</strong> B1 (Gute Kenntnisse)</li>
+                    </ul>
+                </section>
+
+                <section class="info-section">
+                    <h3><i class="fas fa-heart"></i> Interessen</h3>
+                    <div class="tags">
+                        <span class="tag outline">Programmierung</span>
+                        <span class="tag outline">PC-Hardware</span>
+                        <span class="tag outline">Technologie-Trends</span>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="content-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Schulbildung</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Seit 08/2024 – aktuell</div>
+                        <div class="timeline-content">
+                            <h4>Cuno-Berufskolleg 1, Hagen</h4>
+                            <p><strong>Bildungsgang:</strong> Höhere Berufsfachschule (Qualifikation für die gymnasiale Oberstufe / Fachabitur)</p>
+                            <p class="text-muted">Voraussichtlicher Abschluss: 2026/2027</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2014 – 2024</div>
+                        <div class="timeline-content">
+                            <h4>Gymnasium Nr. 86, Charkiw (Ukraine)</h4>
+                            <p><strong>Abschluss:</strong> Ukrainisches Zeugnis über die allgemeine Sekundarbildung (anerkannt als Mittlerer Schulabschluss)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h3><i class="fas fa-project-diagram"></i> Projekte und praktische Erfahrungen</h3>
+                    
+                    <div class="project-card">
+                        <h4>Roboter-Programmierung <span>(Schulprojekt)</span></h4>
+                        <ul>
+                            <li>Konzeption und Programmierung der Steuerung eines Roboters.</li>
+                            <li>Umsetzung von logischen Abläufen und Algorithmen zur Hardware-Ansteuerung.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>Eigenständige Entwicklung von Telegram-Bots <span>(Python)</span></h4>
+                        <ul>
+                            <li>Erstellung von interaktiven Chatbots unter Verwendung von Python-Bibliotheken.</li>
+                            <li>Implementierung von Funktionen zur Automatisierung und Benutzerinteraktion.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>Praktische Programmierübungen</h4>
+                        <ul>
+                            <li>Entwicklung von verschiedenen Konsolenanwendungen (z. B. mathematische Rechner) zur Vertiefung von Kontrollstrukturen und Datentypen.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <h4>Web-Entwicklung <span>(Schulprojekte)</span></h4>
+                        <ul>
+                            <li>Erstellung und Gestaltung von ersten Websites mit HTML im Rahmen des Schulunterrichts.</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <p>Hagen, den 12.07.2026</p>
+            <p class="signature-name">(Artem Miroshnykov)</p>
+        </footer>
+    </div>
+
+</body>
+</html>
